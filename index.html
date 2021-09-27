@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>muzic for work</title>
+  <style type="text/css">
+    body{background-color: black; position: relative;}
+
+    .popup{position: absolute; margin-left: 600px; margin-top: 90px;}
+
+    .header{display: flex; justify-content: center; margin-top: 100px; margin-bottom: 20px;}
+    .title{width:300px;}
+
+    .container{width: 100%; height: 600px; margin-top : 90px; 
+      margin-bottom: 70px; display: flex; justify-content: center;}
+    .first{margin: 90px; width:250px; margin-top: 90px; cursor: pointer;}
+    .lovely{margin: 90px; width:250px; margin-top: 190px; margin-left: -8px;   cursor: pointer;}
+    .melody{margin: 90px; width:250px; margin-top: 90px; cursor: pointer;}
+    .bubble{margin: 90px; width:250px; margin-top: 170px; cursor: pointer;}
+
+.slidecontainer {width: 30%; margin: 0 auto; display: flex; justify-content: center; align-items: center;}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, white 60%, white 60%);
+  outline: none;
+  opacity: 70%;
+}
+
+
+.slider:hover{opacity: 1;}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  background: url('face1.png') 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 45px;
+  height: 45px;
+  border: 0;
+  background: url('face1.png') 50%;
+  cursor: pointer;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <img src="pop.png" width="600px" class="popup" align="center" id="pop">
+
+  <div class="header">
+    <img class="title" src="title.png" alt="title">
+  </div>
+  <div class="container">
+    <div>
+      <img id="first" class="first" src="first.png" alt="first">
+      <audio id="firstSnd" src="first.mp3"></audio>
+    </div>
+    <div>
+      <img class="lovely" id="lovely" src="lovely.png" alt="lovely">
+      <audio id="lovelySnd" src="lovely.mp3"></audio>
+    </div>
+    <div>
+      <img class="melody" id="melody" src="melody.png" alt="melody">
+      <audio id="melodySnd" src="melody.mp3"></audio>
+    </div>
+    <div>
+      <img class="bubble" id="bubble" src="bubble.png" alt="bubble">
+      <audio id="bubbleSnd" src="bubble.mp3"></audio>
+    </div>
+  </div>
+  <div class="footer">
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+</div>
+  </div>
+
+<script type="text/javascript">
+
+  myRange.value = 80;
+  myRange.oninput = function(){
+    firstSnd.volume = myRange.value / 100;
+    lovelySnd.volume = myRange.value / 100;
+    melodySnd.volume = myRange.value / 100;
+    bubbleSnd.volume = myRange.value / 100;
+  }
+
+  pop.onclick = function(){pop.parentNode.removeChild(pop);}
+
+
+
+  var state = false;
+
+  first.onclick = function()
+  {
+    if (state) {firstSnd.pause(); first.src = "first.png"; state = false;}
+    else{firstSnd.play(); first.src = "first2.png"; state = true;}
+  }    
+  lovely.onclick = function()
+  {
+    if (state) {lovelySnd.pause(); lovely.src = "lovely.png"; state = false;}
+    else{lovelySnd.play(); lovely.src = "lovely2.png"; state = true;}
+  }   
+  melody.onclick = function()
+  {
+    if (state) {melodySnd.pause(); melody.src = "melody.png"; state = false;}
+    else{melodySnd.play(); melody.src = "melody2.png"; state = true;}
+  }   
+  bubble.onclick = function()
+  {
+    if (state) {bubbleSnd.pause(); bubble.src = "bubble.png"; state = false;}
+    else{bubbleSnd.play(); bubble.src = "bubble2.png"; state = true;}
+  }   
+
+</script>
+
+
+</body>
+</html>
